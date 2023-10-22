@@ -229,12 +229,18 @@
             </div>
           </div>
           <div class="col-md-5">
-            <form action="#">
-              <input type="text" name="name" id="name" placeholder="Name" class="form-control rounded-0 mb-2"
-              />
-              <input type="email" name="email" id="email" placeholder="Email" class="form-control rounded-0 mb-2"
-              />
-              <textarea name="body" id="body" placeholder="Message" cols="30" rows="3" class="form-control round mb-3"></textarea>
+            <form action="https://www.instagram.com/laksa_ra/" target="_blank" name="contact" onsubmit="return validateForm()">
+              <div class="form-group">
+                <label for="Name">Nama lengkap</label>
+                <input type="text" name="name" id="name" placeholder="Name" class="form-control rounded-0 mb-2"
+                required minlength="5" autocomplete="off"/>
+              </div>
+              <div class="form-group">
+                <label for="Email">Email</label>
+                <input type="email" name="email" id="email" placeholder="Email" class="form-control rounded-0 mb-2" required 
+                />
+              </div>
+              <textarea name="body" id="body" placeholder="Message" cols="30" rows="3" class="form-control round mb-3" required></textarea>
 
               <button class="btn-blue w-100 rounded-0">Submit</button>
             </form>
@@ -275,5 +281,21 @@
 },
 });
   </script> 
+  <script>
+    function validateForm() {
+    var nameField = document.getElementById('name');
+    var nameValue = nameField.value;
+
+    var letters = /^[A-Za-z\s]+$/; // Pola regex untuk memeriksa huruf dan spasi
+
+    if (!nameValue.match(letters)) {
+        alert("Nama harus berisi huruf saja!");
+        return false;
+    }
+
+    return true;
+}
+
+</script>
 </body>
 </html>
